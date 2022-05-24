@@ -57,13 +57,12 @@
         margin-bottom: 18px;
 
         &__wrapper {
-            padding-bottom: 18px;
-            /* Нужен ли здесь паддинг??? Складывается с паддингом итем */
+            margin-bottom: 18px;
+            position: relative;
         }
 
         &__content {
             text-align: center;
-            padding-bottom: 15px;
 
             h3 {
                 font-weight: 700;
@@ -79,12 +78,64 @@
                 color: #0D0D0D;
             }
 
-            a {
-                font-weight: 500;
-                font-size: 14px;
-                line-height: 14px;
-                text-decoration: underline;
-                color: $main_color;
+        }
+
+        &__link {
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 14px;
+            text-decoration: underline;
+            color: $main_color;
+        }
+
+        &__list {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding-bottom: 5px;
+            background: #fff;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            opacity: 0;
+            visibility: hidden;
+            
+            
+
+            ul {
+                text-align: left;
+                padding: 0;
+
+                li {
+                    position: relative;
+                    padding-left: 15px;
+                    margin-bottom: 5px;
+                    font-weight: 300;
+                    font-size: 14px;
+                    line-height: 21px;
+                    color: #555555;
+                    list-style-type: none;
+                   
+                    &:before {
+                        content: "";
+                        width: 5px;
+                        height: 5px;
+                        background: $main_color;
+                        position: absolute;
+                        left: 0;
+                        top: 8px;
+                    }
+                  
+                }
+            }
+
+            &_active {
+                opacity: 1;
+                visibility: visible;
+                transition: all 0.3s;
             }
         }
 
@@ -94,29 +145,27 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+        }
 
-            &-price {
+        &__price {
 
-                &_new {
-                    font-weight: 300;
-                    font-size: 14px;
-                    line-height: 14px;
-                    text-decoration: line-through;
-                    color: #555555;
-                }
-
-                &_old {
-                    font-weight: 700;
-                    font-size: 20px;
-                    line-height: 20px;
-                    color: #050505;
-                }
+            &_new {
+                font-weight: 300;
+                font-size: 14px;
+                line-height: 14px;
+                text-decoration: line-through;
+                color: #555555;
             }
 
+            &_old {
+                font-weight: 700;
+                font-size: 20px;
+                line-height: 20px;
+                color: #050505;
+            }
         }
 
     }
-
 }
 
 @media(max-width:991px) {
