@@ -1,0 +1,187 @@
+.catalog {
+    padding-bottom: 80px;
+
+    &__tabs {
+        display: flex;
+        justify-content: center;
+        list-style-type: none;
+        margin: 0 -5px;
+    }
+
+    &__tab {
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 18px;
+        text-align: center;
+        text-transform: uppercase;
+        color: #6B6B6B;
+        width: 222px;
+        height: 52px;
+        border: 2px solid #D0D0D0;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 5px;
+        transform: skewX(-20deg);
+
+        &_active {
+            background-color: $main_color;
+            color: #fff;
+            border: solid 1px $main_color;
+        }
+
+        span {
+            transform: skewX(20deg);
+        }
+    }
+
+    &__content {
+        display: none;
+        padding-top: 57px;
+
+        &_active {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-content: space-around;
+        }
+    }
+
+    &-item {
+        width: 300px;
+        min-height: 440px;
+        background: #FFFFFF;
+        border: 2px solid #E8E8E8;
+        padding: 18px;
+        margin-bottom: 18px;
+
+        &__wrapper {
+            padding-bottom: 18px;
+            /* Нужен ли здесь паддинг??? Складывается с паддингом итем */
+        }
+
+        &__content {
+            text-align: center;
+            padding-bottom: 15px;
+
+            h3 {
+                font-weight: 700;
+                font-size: 16px;
+                line-height: 25px;
+                color: #0D0D0D;
+            }
+
+            p {
+                font-weight: 300;
+                font-size: 14px;
+                line-height: 22px;
+                color: #0D0D0D;
+            }
+
+            a {
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 14px;
+                text-decoration: underline;
+                color: $main_color;
+            }
+        }
+
+        &__footer {
+            border-top: solid 1px #E8E8E8;
+            padding-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            &-price {
+
+                &_new {
+                    font-weight: 300;
+                    font-size: 14px;
+                    line-height: 14px;
+                    text-decoration: line-through;
+                    color: #555555;
+                }
+
+                &_old {
+                    font-weight: 700;
+                    font-size: 20px;
+                    line-height: 20px;
+                    color: #050505;
+                }
+            }
+
+        }
+
+    }
+
+}
+
+@media(max-width:991px) {
+    .catalog {
+        &__tabs {
+            padding-left: 0;
+        }
+
+        &__tab {
+            font-weight: 300;
+            font-size: 14px;
+            line-height: 12px;
+            text-align: center;
+            text-transform: uppercase;
+            color: #6B6B6B;
+            width: 222px;
+            height: 35px;
+            border: 1px solid #D0D0D0;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 2px;
+            transform: none;
+
+            &_active {
+                background-color: $main_color;
+                color: #fff;
+            }
+
+            span {
+                transform: none;
+            }
+        }
+
+        &__content {
+
+            &_active {
+                justify-content: space-evenly;
+                align-content: space-around;
+            }
+        }
+
+
+    }
+
+}
+
+@media(max-width:767px) {
+
+    .catalog {
+
+        &-item {
+            width: 235px;
+        }
+    }
+
+}
+
+@media(max-width:575px) {
+
+    .catalog {
+
+        &-item {
+            width: 300px;
+        }
+    }
+}

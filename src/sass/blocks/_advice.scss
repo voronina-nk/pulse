@@ -1,0 +1,57 @@
+.advice {
+    min-height: 680px;
+    background: url('../img/advice/advice_bg.jpg') no-repeat 0 0 / cover;
+    padding: 100px 0;
+
+    &__title {
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 54px;
+        color: #fff;
+        text-transform: uppercase;
+    }
+
+    &__subtitle {
+        max-width: 426px;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 30px;
+        color: #fff;
+        margin-bottom: 35px;
+    }
+
+ 
+}
+
+@media(max-width:1199px) {
+
+}
+
+@media(max-width:991px) {
+
+}
+
+@media(max-width:767px) {
+
+}
+
+@media(max-width:575px) {
+    .advice {
+        text-align: center;
+        padding: 60px 0;
+        min-height: auto;
+        &__title {
+            font-size: 28px;
+            line-height: 38px;
+            margin-bottom: 20px;
+        }
+
+        .feed-form {
+            width: 100%;
+        }
+    }
+}
+
+@media(max-width:360) {
+    
+}

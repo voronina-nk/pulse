@@ -1,0 +1,59 @@
+.advantage {
+    background-color: #F6F6F6;
+    padding: 73px 0 83px;
+
+    
+    &__item {
+        max-width: 270px;
+        margin: 0 auto;
+        text-align: center;
+        color: #0D0D0D;
+
+        img {
+            padding-bottom: 30px;
+        }
+
+        h2 {
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 29px;
+            color: #0D0D0D;
+        }
+
+        p {
+            font-weight: 300;
+            font-size: 14px;
+            line-height: 18px;
+
+            a {
+                color: $main-color;
+                text-decoration: underline;
+
+            }
+        }
+    }
+}
+
+@media(max-width:1199px) {
+
+}
+
+@media(max-width:991px) {
+
+}
+
+@media(max-width:767px) {
+    .advantage {
+       div[class*="col"]:not(:first-child) &__item {
+            margin-top: 30px;
+        }
+    }
+}
+
+@media(max-width:575px) {
+
+}
+
+@media(max-width:360px) {
+    
+}
