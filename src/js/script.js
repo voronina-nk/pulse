@@ -120,11 +120,47 @@ $(document).ready(function () {
           slidesToShow: 1,
           slidesToScroll: 1,
           arrows: false,
-          dots: true         
+          dots: true
         }
       }
     ]
   });
+
+  $('ul.catalog__tabs').on('click', 'li:not(.catalog__tab_active)', function () {
+    $(this)
+      .addClass('catalog__tab_active').siblings().removeClass('catalog__tab_active')
+      .closest('section.catalog').find('div.catalog__content').removeClass('catalog__content_active').eq($(this).index()).addClass('catalog__content_active');
+  });
+
+  // $('.js-open').each(function (i) {
+  //   $(this).on('click', function (e) {
+  //     e.preventDefault();
+  //     $('.catalog-item__list').eq(i).addClass('catalog-item__list_active');
+  //   });
+  // });
+
+  // $('.js-close').each(function (i) {
+  //   $(this).on('click', function (e) {
+  //     e.preventDefault();
+  //     $('.catalog-item__list').eq(i).removeClass('catalog-item__list_active');
+  //   });
+  // });
+
+// ниже объединяем две функции в одну
+
+  function toggleActive(item) {
+    $(item).each(function (i) {
+      $(this).on('click', function (e) {
+        e.preventDefault(); //отменяем стоящее по умолчанию событие
+        $('.catalog-item__list').eq(i).toggleClass('catalog-item__list_active');
+      });
+    });
+  }
+
+  toggleActive('.js-open');
+  toggleActive('.js-close');
+
+
 });
 
 
