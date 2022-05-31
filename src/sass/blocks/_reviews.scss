@@ -47,3 +47,19 @@
      font-size: 16px;
      line-height: 24px;
  }
+
+ @media(max-width:575px) {
+     .reviews__item {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+
+            img {
+                margin: 0 auto;
+            }
+     }
+
+     .reviews__text p {
+         font-size: 14px;
+     }
+ }
