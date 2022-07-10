@@ -1,107 +1,245 @@
 .promo {
-    min-height: 650px;
-    background: url('../img/promo/promo-bg.jpg') no-repeat;
-    background-size: cover;
-
+    min-height: 500px;
+    background: url('../img/first_bg.jpg') no-repeat center top / cover;
+    position: relative;
 
     &__header {
-        padding: 21px 0;
+        max-width: 1180px;
+        height: 70px;
+        background: $bg_color;
+        border-radius: 0px 0px 30px 30px;
+        padding: 25px;
+        text-align: center;
+        text-transform: uppercase;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 20px;
+
+        &-menu {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+
+            .menu_item {
+                margin: 0 22px;
+
+                a {
+                    color: $header_main_color;
+                }
+
+                a:hover {
+                    color: #D3A45D;
+                    text-decoration-line: none;
+                }
+            }
+        }
     }
 
     &__wrapper {
-        margin-top: 90px;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        color: #FFFFFF;
-    }
+        padding-top: 42px;
+        padding-bottom: 50px;
 
-    &__title {
-        font-weight: 700;
-        font-size: 42px;
-        line-height: 42px;
-        text-transform: uppercase;
-    }
+        .author {
+            display: flex;
+            justify-content: center;
+            margin: 45px 0 30px;
 
-    &__subtitle {
-        margin-top: 15px;
-        font-weight: 500;
-        font-size: 24px;
-        line-height: 24px;
-        text-transform: uppercase;
-    }
+            &__info {
+                padding: 15px;
 
-    &__icons {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
-        text-align: center;
-        margin: 60px 0 65px;
-        width: 424px;
+                &__name {
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 24px;
+                    line-height: 29px;
+                    color: #F4F2EB;
+                }
 
-        &-item {
-            width: 123px;
-
-            p {
-                margin-top: 20px;
-                font-weight: 500;
-                font-size: 14px;
-                line-height: 14px;
+                &__action {
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 15px;
+                    line-height: 29px;
+                    text-transform: uppercase;
+                    color: #C1BDB0;
+                }
             }
         }
-    }
 
-    &__link {
-        font-weight: 500;
-        font-size: 16px;
-        margin-top: 8px;
+        .book_name {
 
-        a {
-            color: #fff;
-            text-transform: uppercase;
-            text-decoration: underline;
+            img {
+                margin: 0 auto;
+                display: flex;
+                justify-content: center;
+            }
         }
 
+
     }
-}
 
-
-@media(max-width:1199px) {}
-
-@media(max-width:991px) {
-    .promo {
-        padding-bottom: 60px;
-
+    .toogle_menu {
+        border: none;
+        background: none;
     }
 
 }
 
-@media(max-width:767px) {
+.promo:after {
+    content: '';
+    background: url(../../img/promo/bottom_arrow.svg) no-repeat center/100%;
+    display: block;
+    width: 100%;
+    height: 18px;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+@media(max-width: 1199px) {
     .promo {
-        text-align: center;
+        &__header {
+            font-size: 14px;
+        }
+
+        &:after {
+            bottom: -7px;
+        }
+    }
+}
+
+@media(max-width: 998px) {
+    .promo {
+        &__header {
+            background: transparent;
+
+        }
+
+
+        &__header-menu {
+            position: fixed;
+            left: -100%;
+            top: 0;
+            bottom: 0;
+            flex-direction: column;
+            justify-content: flex-start;
+            padding-top: 60px;
+            padding-left: 30px;
+            width: 100%;
+            background-color: #F4F2EB;
+            z-index: 2;
+            transition: all 0.3s;
+
+            font-style: normal;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 60px;
+            text-align: left;
+
+            .menu_item {
+
+                a {
+                    &:hover {
+                        color: #D3A45D;
+                    }
+
+                    &:active {
+                        color: #C1BDB0;
+                    }
+                }
+            }
+        }
+
+        &__header-menu_active {
+            left: 0;
+        }
+
+        .toogle_menu {
+            width: 26px;
+            background: none;
+            border: none;
+            padding: 0;
+            position: absolute;
+            right: 30px;
+            top: 30px;
+            transform: translateY(-50%);
+            z-index: 3;
+        }
+
+        .toogle_menu span {
+            display: block;
+            height: 2px;
+            background-color: #fff;
+            margin-bottom: 3px;
+            transition: all 0.3s;
+        }
+
+        .toogle_menu span:last-child {
+            margin-bottom: 0;
+        }
+
+        .toogle_menu_active span {
+            margin-bottom: -1px;
+            background-color: $header_main_color;
+        }
+
+        .toogle_menu_active span:nth-child(1) {
+            transform: rotate(45deg);
+        }
+
+        .toogle_menu_active span:nth-child(2) {
+            display: none;
+        }
+
+        .toogle_menu_active span:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+
+
+
+    }
+}
+
+
+@media(max-width: 575px) {
+    .promo {
+        min-height: 400px;
+        padding-bottom: 45px;
 
         &__wrapper {
-            align-items: center;
-        }
+            padding-top: 0;
 
-        &__title {
-            font-size: 35px;
-        }
+            .author {
+                margin-top: 10px;
+                flex-direction: column;
+                align-items: center;
 
-        &__subtitle {
-            font-size: 20px;
-        }
+                &__info {
+                    text-align: center;
+                }
 
-        &__icons {
-            max-width: 100%;
 
-            &-item p {
-                font-size: 12px;
             }
+
+            .book_name {
+
+                .substract {
+                    width: 20px;
+                    height: 20px;
+                }
+
+                .logo {
+                    width: 280px;
+                }
+            }
+
+
         }
+
     }
 }
-
-@media(max-width:575px) {}
-
-@media(max-width:360) {}

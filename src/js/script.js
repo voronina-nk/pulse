@@ -1,168 +1,34 @@
-// var name = 'John';
-// let num = 15;
-// const pi = 3.14; //константу мы переопределять не можем
-// num = 20; //переопределяем переменную num
-// let bigWidthBorder = 200; // cammelCase стандарт, правило написания
-
-// number
-// string
-// true/false boolean
-// null
-// undefined
-
-//  объекты
-// let obj = {
-//     name: 'John',
-//     age: 18,
-//     isMaried: true,
-// }
-
-// Symbol
-
-
-
-// взаимодействие с пользователем
-// alert('123'); видит пользователь
-// console.log('123'); видит разработчик в консоли браузера
-
-// let message = confirm('Вам уже есть 18?'); 
-// console.log(message);
-
-// prompt('Сколько вам лет?', '');
-
-
-
-// операторы  - * /
-// оператор + конкатинация, объединение двух частей в одну
-// возведение в степень обознач **
-// деление от остатка %, можем получить четные или нечетные числа
-// знак или ||
-// знак и &&
-// знак сравнения ==
-// знак присваивания =
-// жесткое сравнение, сравнивает не только числа но и их тип данных ===
-// знак отрицания !
-// не равно !=
-
-// console.log(8 + 5);
-
-// let isChecked = false;
-//     isClose = true;
-// console.log(isChecked || isClose);
-
-
-
-//условные конструкции
-
-// if (2 * 4 == 8 * 1) {
-//     console.log('Верно');
-// } else {
-//     console.log('Неверно');
-// }
-
-// let answer = confirm('Вам уже есть 18?');
-
-// if (answer == true) {
-//     console.log('Проходите');
-// } else {
-//     console.log('Уходите');
-// }
-
-
-// можно также записать так
-// if (answer) {
-//     console.log('Проходите');
-// } else {
-//     console.log('Уходите');
-// }
-
-//  let number = 10;
-// if(number > 500) {
-//     console.log('Это много');
-// } else if (number < 49) {
-//     console.log('Это мало');
-// } else {
-//     console.log('Верно');
-// }
-
-
-// можно использовать '' , "" или ``
-
-// цикл for
-// for (let i = 0; i < 7; i++) {
-//     console.log(i + ' Номер');
-// }
-
-
-// for (let i = 0; i < 4; i++) {
-//     console.log(`Номер ${i}`);
-// }
-
-// функции
-// function tocalc(a, b) {
-//     console.log(a + b);
-// }
-// tocalc(10, 20);
-
-
 $(document).ready(function () {
-  $('.carousel__wrapper').slick({
-    infinite: true,
+  $('.reviews__carousel').slick({
+    // infinite: true,
     speed: 800,
     prevArrow: '<button type="button" class="slick-prev"><img src="icons/left.svg"></button>',
     nextArrow: '<button type="button" class="slick-next"><img src="icons/right.svg"></button>',
-    autoplay: true,
-    autoplaySpeed: 2000,
+    autoplay: false,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    appendArrows: $('.reviews__nav'),
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 575,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          arrows: false,
-          dots: true
+          adaptiveHeight: true
         }
       }
     ]
   });
-
-  $('ul.catalog__tabs').on('click', 'li:not(.catalog__tab_active)', function () {
-    $(this)
-      .addClass('catalog__tab_active').siblings().removeClass('catalog__tab_active')
-      .closest('section.catalog').find('div.catalog__content').removeClass('catalog__content_active').eq($(this).index()).addClass('catalog__content_active');
-  });
-
-  // $('.js-open').each(function (i) {
-  //   $(this).on('click', function (e) {
-  //     e.preventDefault();
-  //     $('.catalog-item__list').eq(i).addClass('catalog-item__list_active');
-  //   });
-  // });
-
-  // $('.js-close').each(function (i) {
-  //   $(this).on('click', function (e) {
-  //     e.preventDefault();
-  //     $('.catalog-item__list').eq(i).removeClass('catalog-item__list_active');
-  //   });
-  // });
-
-// ниже объединяем две функции в одну
-
-  function toggleActive(item) {
-    $(item).each(function (i) {
-      $(this).on('click', function (e) {
-        e.preventDefault(); //отменяем стоящее по умолчанию событие
-        $('.catalog-item__list').eq(i).toggleClass('catalog-item__list_active');
-      });
-    });
-  }
-
-  toggleActive('.js-open');
-  toggleActive('.js-close');
-
-
 });
 
+let toogleMenu = document.querySelector('.toogle_menu'),
+    menu = document.querySelector('.promo__header-menu');
+
+toogleMenu.onclick = function (e) {
+    e.preventDefault;
+    toogleMenu.classList.toggle('toogle_menu_active');
+    menu.classList.toggle('promo__header-menu_active');
+}
 
 
 
